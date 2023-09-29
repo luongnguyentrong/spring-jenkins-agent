@@ -1,0 +1,20 @@
+# Build stage
+FROM    maven:3.9.4-amazoncorretto-20-debian as build
+WORKDIR app
+COPY    pom.xml .
+RUN     mvn dependency:go-offline
+COPY    ./ ./
+RUN     mvn package -Dmaven.test.skip -Dmaven.install.skip=true
+
+# Deploy stage
+FROM        openjdk:17-alpine
+ARG         USERNAME=petclinic
+
+# Create petclinic user
+RUN         addgroup $USERNAME 
+RUN         adduser --system -G $USERNAME $USERNAME
+
+USER        petclinic
+WORKDIR     app
+COPY        --from=build /app/target ./
+ENTRYPOINT  java -jar *.jar

@@ -1,0 +1,12 @@
+version: "1.0"
+
+# Created by Luong (Please don't copy, especially huynvb4)
+services:
+  petclinic:
+    image: petclinic:stable
+    ports:
+      - 80:8080
+    volumes:
+      - ./logs:/app/logs
+    environment:
+      SPRING_PROFILES_ACTIVE: production
