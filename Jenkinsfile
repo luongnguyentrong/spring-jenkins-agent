@@ -41,7 +41,7 @@
 podTemplate(yaml: readTrusted('pod.yml')) {
   node(POD_LABEL) {
     stage("TEST") {
-      sh "mvn -version"
+      sleep(time: 3600, unit: 'SECONDS')
     }
   }
 }
