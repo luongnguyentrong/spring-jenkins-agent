@@ -40,8 +40,8 @@
 
 podTemplate(yaml: readTrusted('pod.yml')) {
   node(POD_LABEL) {
-    checkout scm
-    stage("ECHO") {
+    container("maven") {
+      checkout scm
       sh "mvn --version"
       sh "ls"
     }
