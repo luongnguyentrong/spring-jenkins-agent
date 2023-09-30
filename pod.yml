@@ -1,0 +1,49 @@
+apiVersion: v1
+kind: Pod
+spec:
+  containers:
+  - name: maven
+    image: docker.luongntd1.lab.ocp.lan/maven:alpine
+    restartPolicy: Never
+    command:
+      - sleep
+    args:
+      - 99d
+    tty: true
+    # volumeMounts:
+    # # - name: config-settings
+    # #   mountPath: /.m2/settings-docker.xml
+    # #   readOnly: false
+    # # - name: task-pv-storage
+    # #   mountPath: /.m2
+    # #   readOnly: false
+    # - name: config-settings
+    #   mountPath: /.m2/
+    #   readOnly: false
+    # - name: task-pv-storage
+    #   mountPath: /.m2/repository
+    #   readOnly: false
+  # - name: kaniko
+  #   image: gcr.io/kaniko-project/executor:debug
+  #   restartPolicy: Never
+  #   command:
+  #   - cat
+  #   volumeMounts:
+  #   - name: jenkins-docker-cfg
+  #     mountPath: /kaniko/.docker
+  #   tty: true
+  # volumes:
+  #   - name: config-settings
+  #     configMap:
+  #       name: settings-2-xml
+  #   - name: jenkins-docker-cfg
+  #     projected:
+  #       sources:
+  #       - secret:
+  #           name: nexus-credentials
+  #           items:
+  #             - key: .dockerconfigjson
+  #               path: config.json
+  #   - name: task-pv-storage
+  #     persistentVolumeClaim:
+  #       claimName: maven-repo-storage
