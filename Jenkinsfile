@@ -42,6 +42,6 @@ node {
     checkout scm
 
     stage("TEST") {
-        sh "ls"
+        sh "./mvnw compile"
     }
 }
