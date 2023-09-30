@@ -39,6 +39,8 @@
 // }
 
 node {
+    checkout scm
+
     stage("TEST") {
         sh "ls"
     }
