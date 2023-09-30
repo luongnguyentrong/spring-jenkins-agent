@@ -40,6 +40,11 @@
 
 podTemplate(yaml: readTrusted('pod.yml')) {
   node(POD_LABEL) {
+    checkout scm
+    stage("ECHO") {
+      sh "mvn --version"
+      sh "ls"
+    }
     stage("TEST") {
       sleep(time: 3600, unit: 'SECONDS')
     }
