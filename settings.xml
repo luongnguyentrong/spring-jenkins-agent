@@ -1,0 +1,17 @@
+<settings>
+  <mirrors>
+    <mirror>
+      <id>nexus</id>
+      <name>Nexus Central</name>
+      <url>https://nexus.luongntd1.lab.ocp.lan/repository/maven-central/</url>
+      <mirrorOf>central</mirrorOf>
+    </mirror>
+  </mirrors>
+  <servers>
+      <server>
+          <id>nexus</id>
+          <username>jenkins</username>
+          <password>jenkins</password>
+      </server>
+  </servers>
+</settings>

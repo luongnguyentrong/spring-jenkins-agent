@@ -86,7 +86,7 @@ podTemplate(yaml:'''
     stage('Build a Maven project') {
       container('maven') {
         checkout scm
-        sh 'mvn compile'
+        sh 'mvn -s settings.xml compile'
       }
     }
   }
