@@ -51,6 +51,8 @@ spec:
   imagePullSecrets:
   - name: luongntd1-nexus-docker
   containers:
+  securityContext:
+    runAsUser: 0
   - name: maven
     image: docker.luongntd1.lab.ocp.lan/maven:3.9.4
     command:
@@ -59,7 +61,7 @@ spec:
     - 99d
     volumeMounts:
     - name: jenkins-m2-data
-      mountPath: /.m2
+      mountPath: /home/jenkins/.m2
     env:
     - name: HOME
       value: /home/jenkins
