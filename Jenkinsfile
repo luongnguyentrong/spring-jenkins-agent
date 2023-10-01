@@ -38,44 +38,54 @@
 //     }
 // }
 
-podTemplate(yaml: readTrusted('pod.yml')) {
+// podTemplate(yaml: readTrusted('pod.yml')) {
+//   node(POD_LABEL) {
+//     container("maven") {
+//       checkout scm
+//       sh "mvn --version"
+//       sh "ls"
+//     }
+//     stage("TEST") {
+//       sleep(time: 3600, unit: 'SECONDS')
+//     }
+//   }
+// }
+
+podTemplate(yaml:'''
+              spec:
+                containers:
+                - name: jnlp
+                  image: jenkins/inbound-agent
+                  volumeMounts:
+                  - name: home-volume
+                    mountPath: /home/jenkins
+                  env:
+                  - name: HOME
+                    value: /home/jenkins
+                - name: maven
+                  image: docker.luongntd1.lab.ocp.lan/maven:3.8.1-jdk-8
+                  command:
+                  - sleep
+                  args: 
+                  - 99d
+                  volumeMounts:
+                  - name: home-volume
+                    mountPath: /home/jenkins
+                  env:
+                  - name: HOME
+                    value: /home/jenkins
+                  - name: MAVEN_OPTS
+                    value: -Duser.home=/home/jenkins
+                volumes:
+                - name: home-volume
+                  emptyDir: {}
+''') {
   node(POD_LABEL) {
-    container("maven") {
-      checkout scm
-      sh "mvn --version"
-      sh "ls"
-    }
-    stage("TEST") {
-      sleep(time: 3600, unit: 'SECONDS')
+    stage('Build a Maven project') {
+      container('maven') {
+        checkout scm
+        sh 'mvn -B -ntp clean package -DskipTests'
+      }
     }
   }
 }
-
-// node {
-//     checkout scm
-
-//     agent {
-//         kubernetes {
-//         yaml '''
-//             apiVersion: v1
-//             kind: Pod
-//             spec:
-//             containers:
-//             - name: maven
-//                 image: maven:alpine
-//                 command:
-//                 - cat
-//                 tty: true
-//             '''
-//         }
-//     }
-//     stages {
-//         stage('Run maven') {
-//         steps {
-//             container('maven') {
-//             sh 'mvn -version'
-//             }
-//         }
-//         }
-//     }  
-// }
