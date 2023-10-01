@@ -48,8 +48,6 @@
 #       persistentVolumeClaim:
 #         claimName: maven-repo-storage
 spec:
-  securityContext:
-    runAsUser: 0
   imagePullSecrets:
   - name: luongntd1-nexus-docker
   containers:
