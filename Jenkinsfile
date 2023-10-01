@@ -86,7 +86,7 @@ podTemplate(yaml:'''
     stage('Build a Maven project') {
       container('maven') {
         checkout scm
-        sh 'mvn -B -ntp clean package -DskipTests'
+        sh 'mvn compile'
       }
     }
   }
