@@ -1,6 +1,6 @@
 podTemplate(yaml: readTrusted('pod.yml')) {
   node(POD_LABEL) {
-    @Library(['scan-code-library', 'build-code-library', 'pipline-scripted-library', 'deploy-code-library']) _
+    @Library(['scan-code-library', 'build-code-library', 'pipeline-scripted-library', 'deploy-code-library']) _
 
     try {
         scripted()
