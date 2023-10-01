@@ -65,7 +65,7 @@ podTemplate(yaml:'''
                   - name: HOME
                     value: /home/jenkins
                 - name: maven
-                  image: docker.luongntd1.lab.ocp.lan/maven:3.8.1-jdk-8
+                  image: docker.luongntd1.lab.ocp.lan/maven:3.9.4
                   command:
                   - sleep
                   args: 
