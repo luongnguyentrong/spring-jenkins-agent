@@ -3,8 +3,8 @@
     <mirror>
       <id>nexus</id>
       <name>Nexus Central</name>
-      <url>https://nexus.luongntd1.lab.ocp.lan/repository/maven-central/</url>
-      <mirrorOf>central</mirrorOf>
+      <url>http://10.98.86.30:8081/repository/maven-public/</url>
+      <mirrorOf>*</mirrorOf>
     </mirror>
   </mirrors>
   <servers>
