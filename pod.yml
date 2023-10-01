@@ -65,6 +65,24 @@ spec:
       value: /home/jenkins
     - name: MAVEN_OPTS
       value: -Duser.home=/home/jenkins
+  # - name: kaniko
+  #   image: gcr.io/kaniko-project/executor:debug
+  #   restartPolicy: Never
+  #   command:
+  #   - cat
+#   - name: kaniko
+#     image: gcr.io/kaniko-project/executor:debug
+#     restartPolicy: Never
+#     command:
+#     - cat
+#     volumeMounts:
+#     - name: jenkins-docker-cfg
+#       mountPath: /kaniko/.docker
+#     tty: true
+    # volumeMounts:
+    # - name: jenkins-docker-cfg
+    #   mountPath: /kaniko/.docker
+    # tty: true
   volumes:
   - name: jenkins-m2-data
     persistentVolumeClaim: 
