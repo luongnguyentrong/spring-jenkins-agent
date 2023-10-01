@@ -53,6 +53,8 @@
 
 podTemplate(yaml:'''
               spec:
+                imagePullSecrets:
+                - name: luongntd1-nexus-docker
                 containers:
                 - name: jnlp
                   image: jenkins/inbound-agent
