@@ -15,7 +15,7 @@ podTemplate(yaml: readTrusted('pod.yml')) {
         throw e
     } finally {
         // Success or failure, always send notifications
-        sendEmail(currentBuild.currentResult, ["luong.nguyencs_student@hcmut.edu.vn"])
+        // sendEmail(currentBuild.currentResult, ["luong.nguyencs_student@hcmut.edu.vn"])
     }
   }
 }
