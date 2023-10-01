@@ -1,6 +1,8 @@
 apiVersion: v1
 kind: Pod
 spec:
+  securityContext:
+    runAsUser: root
   containers:
   - name: maven
     image: docker.luongntd1.lab.ocp.lan/maven:alpine
