@@ -56,14 +56,6 @@ podTemplate(yaml:'''
                 imagePullSecrets:
                 - name: luongntd1-nexus-docker
                 containers:
-                - name: jnlp
-                  image: jenkins/inbound-agent
-                  volumeMounts:
-                  - name: home-volume
-                    mountPath: /home/jenkins
-                  env:
-                  - name: HOME
-                    value: /home/jenkins
                 - name: maven
                   image: docker.luongntd1.lab.ocp.lan/maven:3.9.4
                   command:
@@ -71,16 +63,17 @@ podTemplate(yaml:'''
                   args: 
                   - 99d
                   volumeMounts:
-                  - name: home-volume
-                    mountPath: /home/jenkins
+                  - name: jenkins-m2-data
+                    mountPath: /.m2
                   env:
                   - name: HOME
                     value: /home/jenkins
                   - name: MAVEN_OPTS
                     value: -Duser.home=/home/jenkins
                 volumes:
-                - name: home-volume
-                  emptyDir: {}
+                - name: jenkins-m2-data
+                  persistentVolumeClaim: 
+                    claimName: jenkins-m2
 ''') {
   node(POD_LABEL) {
     stage('Build a Maven project') {

@@ -1,10 +1,11 @@
-apiVersion: v1
 kind: PersistentVolumeClaim
+apiVersion: v1
 metadata:
-  name: jenkins-pv-claim
+  name: jenkins-m2
 spec:
+  storageClassName: luongntd1-nfs-client
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 50Gi
+      storage: 1G
