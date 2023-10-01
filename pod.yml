@@ -3,7 +3,7 @@ kind: Pod
 spec:
   containers:
   - name: maven
-    image: docker.luongntd1.lab.ocp.lan/maven:alpine
+    image: docker.luongntd1.lab.ocp.lan/maven:3.9.4
     restartPolicy: Never
     command:
       - sleep
