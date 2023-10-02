@@ -69,7 +69,6 @@ spec:
       value: -Duser.home=/home/jenkins
 
   - name: kaniko
-   
     image: docker.luongntd1.lab.ocp.lan/kaniko-project/executor:debug
     restartPolicy: Never
     command:
@@ -80,6 +79,13 @@ spec:
       mountPath: /kaniko/.docker/
     imagePullSecrets:
     - name: luongntd1-nexus-docker
+  - name: helm
+    image: docker.luongntd1.lab.ocp.lan/alpine/helm
+    restartPolicy: Never
+    command:
+    - sleep
+    args: 
+    - 99d
   volumes:
   - name: jenkins-m2-data
     persistentVolumeClaim: 
@@ -87,3 +93,8 @@ spec:
   - name: docker-config-volume
     configMap:
       name: docker-config-map
+
+oc create secret docker-registry huynvb-docker-nexus \
+    --docker-server=nexus.huynvb.lab.ocp.lan \
+    --docker-username=luongntd1 \
+    --docker-password=luong
