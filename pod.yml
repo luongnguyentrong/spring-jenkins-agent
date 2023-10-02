@@ -67,7 +67,7 @@ spec:
       value: -Duser.home=/home/jenkins
 
   - name: kaniko
-    image: gcr.io/kaniko-project/executor:debug
+    image: docker.luontd1.lab.ocp.lan/bitnami/kaniko
     restartPolicy: Never
     command:
     - cat
