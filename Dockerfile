@@ -1,4 +1,4 @@
-# Created by Luong (Please don't copy, this is only for huynvb4)
+# Created by Luong (Please 4don't copy, this is only for huynvb4)
 FROM        nexus.huynvb.lab.ocp.lan/openjdk:17-alpine
 
 ARG         ENVIROMENT=uat
