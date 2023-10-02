@@ -1,5 +1,5 @@
 # Created by Luong (Please don't copy, this is only for huynvb4)
-FROM        openjdk:17-alpine
+FROM        docker.luongntd1.lab.ocp.lan/openjdk:17-alpine
 
 ARG         ENVIROMENT=uat
 ARG         USERNAME=petclinic
