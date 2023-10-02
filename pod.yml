@@ -93,8 +93,3 @@ spec:
   - name: docker-config-volume
     configMap:
       name: docker-config-map
-
-oc create secret docker-registry huynvb-docker-nexus \
-    --docker-server=nexus.huynvb.lab.ocp.lan \
-    --docker-username=luongntd1 \
-    --docker-password=luong
