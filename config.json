@@ -1,0 +1,7 @@
+{
+  "auths": {
+    "http://nexus.huynvb.lab.ocp.lan/v1/": {
+      "auth": "bHVvbmdudGQxOmx1b25n"
+    }
+  }
+}

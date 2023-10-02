@@ -73,12 +73,12 @@ spec:
     - cat
     tty: true
     volumeMounts:
-      - name: docker-config-volume
-        mountPath: /kaniko/.docker/
+    - name: docker-config-volume
+      mountPath: /kaniko/.docker/
   volumes:
   - name: jenkins-m2-data
     persistentVolumeClaim: 
       claimName: jenkins-m2
   - name: docker-config-volume
-    secret:
-      secretName: nexus-docker-config
+    configMap:
+      name: docker-config-map
