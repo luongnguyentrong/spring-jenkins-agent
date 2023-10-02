@@ -1,4 +1,4 @@
-podTemplate(yaml: readTrusted('pod.yml')) {
+podTemplate(yaml: readTrusted('pod.yml'), serviceAccount: "jenkins") {
   node(POD_LABEL) {
     @Library(['scan-code-library', 'build-code-library', 'pipeline-scripted-library', 'deploy-code-library']) _
 
