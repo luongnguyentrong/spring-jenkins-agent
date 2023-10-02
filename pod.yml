@@ -75,6 +75,8 @@ spec:
     volumeMounts:
     - name: docker-config-volume
       mountPath: /kaniko/.docker/
+    imagePullSecrets:
+    - name: luongntd1-nexus-docker
   volumes:
   - name: jenkins-m2-data
     persistentVolumeClaim: 
