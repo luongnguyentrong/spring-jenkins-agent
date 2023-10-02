@@ -48,6 +48,8 @@
 #       persistentVolumeClaim:
 #         claimName: maven-repo-storage
 spec:
+  securityContext:
+    runAsUser: 0
   imagePullSecrets:
   - name: luongntd1-nexus-docker
   containers:
@@ -67,8 +69,7 @@ spec:
       value: -Duser.home=/home/jenkins
 
   - name: kaniko
-    securityContext:
-      runAsUser: 1000
+   
     image: docker.luongntd1.lab.ocp.lan/kaniko-project/executor:debug
     restartPolicy: Never
     command:
