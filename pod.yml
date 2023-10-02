@@ -67,7 +67,7 @@ spec:
       value: -Duser.home=/home/jenkins
 
   - name: kaniko
-    image: docker.luongntd1.lab.ocp.lan/bitnami/kaniko
+    image: docker.luongntd1.lab.ocp.lan/kaniko-project/executor:debug
     restartPolicy: Never
     command:
     - cat
@@ -75,7 +75,6 @@ spec:
     volumeMounts:
       - name: docker-config-volume
         mountPath: /kaniko/.docker/
-
   volumes:
   - name: jenkins-m2-data
     persistentVolumeClaim: 
