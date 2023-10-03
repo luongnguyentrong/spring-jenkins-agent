@@ -92,4 +92,4 @@ spec:
       claimName: jenkins-m2
   - name: docker-config-volume
     secret:
-      name: kaniko-secret
+      secretName: kaniko-secret
