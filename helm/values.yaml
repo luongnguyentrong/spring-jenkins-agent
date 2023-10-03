@@ -6,7 +6,7 @@ replicaCount: 1
 
 image:
   repository: docker.luongntd1.lab.ocp.lan/spring-petclinic
-  pullPolicy: IfNotPresent
+  pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
   tag: 231002-uat-release
 
