@@ -91,5 +91,5 @@ spec:
     persistentVolumeClaim: 
       claimName: jenkins-m2
   - name: docker-config-volume
-    configMap:
-      name: docker-config-map
+    secret:
+      name: kaniko-secret
