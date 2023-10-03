@@ -1,0 +1,12 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: {{ include "petclinic.fullname" . }}
+spec:
+  host: {{ include "petclinic.fullname" . }}.luongntd1.apps.lab.ocp.lan
+  to:
+    kind: Service
+    name: {{ include "petclinic.fullname" . }}
+    weight: 100
+  port:
+    targetPort: 8080
