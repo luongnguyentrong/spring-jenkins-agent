@@ -5,5 +5,5 @@ The jenkins file is in  [Jenkinsfile](https://github.com/luongnguyentrong/spring
 ## Main Pipeline
 
 <p align="center">
-    <!-- <img src="resources/img/Jenkins_Pipeine.gif"> -->
+    <img src="img/spring-jenkins-agent.drawio.html">
 </p>
